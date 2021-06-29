@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/* Grid Styles
+___________________*/
+
+.site {
+	display: grid;
+	grid-template-columns: 1fr repeat(2, 1fr);
+	grid-tempalte-rows: auto 1fr 3fr;
+	grid-template-areas:
+		"hello hello hello"
+		"image-a copy1 image-b"
+		"image1 image1 image1"
+		"image-c copy2 image-d"
+		"image2 image2 image2"
+		"form form form"
+		"goodbye goodbye goodbye";
+	grid-gap: 1em 2em;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+.hello {
+	grid-area: hello;
+	margin-top: 70px;
+}
+
+.image-a {
+	width: 150px;
+	grid-area: image-a;
+}
+
+.content1 {
+	grid-area: copy1;
+}
+
+.image-b {
+	width: 150px;
+	grid-area: image-b;
+}
+
+.image-c {
+	width: 150px;
+	grid-area: image-c;
+}
+
+.content2 {
+	grid-area: copy2;
+}
+
+.image-d {
+	width: 150px;
+	grid-area: image-d;
+}
+
+.content-image1 {
+	padding: 10px 10px;
+	justify-content: center;
+	grid-area: image1;
+}
+
+.content-image2 {
+	padding: 10px 10px;
+	justify-content: center;
+	grid-area: image2;
+}
+
+.content-form {
+	grid-area: form;
+}
+
+.goodbye {
+	grid-area: goodbye;
+}
+
+.content h2, p {
+	grid-column: 2/3;
+}
+
+
+
+/* Navigation Styles 
+__________________________*/
+
+body {
+	background: #343434;
+}
+
+nav {
+	position: fixed;
+}
+
+nav ul {                                   
+	text-align: left;                    
+	list-style: none;
+}
+
+nav ul li {                                
+	background: #f0f0f0; 
+	font: bold 16px cursive; 		
+	display: inline-block;           
+	position: relative;                
+	padding: 2px 6px;                       
+	cursor: pointer;                  
+}
+
+
+nav ul li:hover {                       
+	background: #666;            
+	color: lightcyan;                      
+}
+
+nav ul li ul {                            
+	padding: 0;                       
+	position: absolute;
+	op: 48px;                      
+	left: -10000px;                 
+	width: 68px;                  
+}
+
+nav ul li ul li {                
+ 	background: #666;          
+ 	display: block;                 
+ 	color: #f0f0f0;                     
+}
+
+nav ul li ul li:hover { 
+	background: #b2b2b2;
+}
+
+nav ul li:hover ul {                 
+	display: block;
+	position: absolute;
+	left :0px;                        
+}
+
+
+/* Design Styles 
+__________________________*/
+
+header, footer {
+	background: #f0f0f0;
+	text-align: center;
+}
+
+section {
+	background: #b2b2b2;
+	text-align: center;
+}
+
+h1, h2 {
+	font-family: cursive;
+}
+
+p {
+	font-family: sans-serif;
+}
+
+@supports (grid-area: auto){
+	
+	@media screen and (min-width: 50em)
+	
+		.site {
+			max-width: none;
+			display: grid;
+			grid-template-columns: 15em auto;
+		}
+	
+	@media screen and (min-width: 65em) {
+
+		.site {
+			grid-template-columns: 15em minmax(auto, 30em) 15em;
+			justify-content: center;
+			
+		}
+}
+/* CSS Document */
+
